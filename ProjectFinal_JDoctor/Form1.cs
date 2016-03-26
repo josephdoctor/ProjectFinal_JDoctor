@@ -95,16 +95,326 @@ namespace ProjectFinal_JDoctor
             }
 
             // updates stickerValues array with new values resulting from the turn
-            stickerValues[2] = temp[26]; stickerValues[20] = temp[22];
-            stickerValues[4] = temp[28]; stickerValues[21] = temp[16];
-            stickerValues[7] = temp[31]; stickerValues[22] = temp[19];
-            stickerValues[10] = temp[2]; stickerValues[23] = temp[21];
-            stickerValues[12] = temp[4]; stickerValues[26] = temp[45];
-            stickerValues[15] = temp[7]; stickerValues[28] = temp[43];
-            stickerValues[16] = temp[18]; stickerValues[31] = temp[40];
-            stickerValues[17] = temp[20]; stickerValues[40] = temp[15];
-            stickerValues[18] = temp[23]; stickerValues[43] = temp[12];
-            stickerValues[19] = temp[17]; stickerValues[45] = temp[10];
+            stickerValues[2] = temp[26];        stickerValues[20] = temp[22];
+            stickerValues[4] = temp[28];        stickerValues[21] = temp[16];
+            stickerValues[7] = temp[31];        stickerValues[22] = temp[19];
+            stickerValues[10] = temp[2];        stickerValues[23] = temp[21];
+            stickerValues[12] = temp[4];        stickerValues[26] = temp[45];
+            stickerValues[15] = temp[7];        stickerValues[28] = temp[43];
+            stickerValues[16] = temp[18];       stickerValues[31] = temp[40];
+            stickerValues[17] = temp[20];       stickerValues[40] = temp[15];
+            stickerValues[18] = temp[23];       stickerValues[43] = temp[12];
+            stickerValues[19] = temp[17];       stickerValues[45] = temp[10];
+
+            // updates stickers
+            UpdateStickers();
+        }
+
+        /// <summary>
+        /// Performs a clockwise, single left turn.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        private void LeftTurn(object sender, EventArgs e)
+        {
+            // creates temp array to store old values of stickerValues
+            // adds values in stickerValues to temp array
+            int[] temp = new int[SIZE];
+            for (int i = 0; i < SIZE; i++)
+            {
+                temp[i] = stickerValues[i];
+            }
+
+            // updates stickerValues array with new values resulting from the turn
+            stickerValues[0] = temp[24];        stickerValues[33] = temp[35];
+            stickerValues[3] = temp[27];        stickerValues[34] = temp[32];
+            stickerValues[5] = temp[29];        stickerValues[35] = temp[38];
+            stickerValues[8] = temp[0];         stickerValues[36] = temp[33];
+            stickerValues[11] = temp[3];        stickerValues[37] = temp[39];
+            stickerValues[13] = temp[5];        stickerValues[38] = temp[36];
+            stickerValues[24] = temp[47];       stickerValues[39] = temp[34];
+            stickerValues[27] = temp[44];       stickerValues[42] = temp[13];
+            stickerValues[29] = temp[42];       stickerValues[44] = temp[11];
+            stickerValues[32] = temp[37];       stickerValues[47] = temp[8];
+
+            // updates stickers
+            UpdateStickers();
+        }
+
+        /// <summary>
+        /// Performs a counterclockwise, single left turn.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        private void LeftPrimeTurn(object sender, EventArgs e)
+        {
+            // creates temp array to store old values of stickerValues
+            // adds values in stickerValues to temp array
+            int[] temp = new int[SIZE];
+            for (int i = 0; i < SIZE; i++)
+            {
+                temp[i] = stickerValues[i];
+            }
+
+            // updates stickerValues array with new values resulting from the turn
+            stickerValues[0] = temp[8];         stickerValues[33] = temp[36];
+            stickerValues[3] = temp[11];        stickerValues[34] = temp[39];
+            stickerValues[5] = temp[13];        stickerValues[35] = temp[33];
+            stickerValues[8] = temp[47];        stickerValues[36] = temp[38];
+            stickerValues[11] = temp[44];       stickerValues[37] = temp[32];
+            stickerValues[13] = temp[42];       stickerValues[38] = temp[35];
+            stickerValues[24] = temp[0];        stickerValues[39] = temp[37];
+            stickerValues[27] = temp[3];        stickerValues[42] = temp[29];
+            stickerValues[29] = temp[5];        stickerValues[44] = temp[27];
+            stickerValues[32] = temp[34];       stickerValues[47] = temp[24];
+
+            // updates stickers
+            UpdateStickers();
+        }
+
+        /// <summary>
+        /// Performs a clockwise, single upward turn.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        private void UpTurn(object sender, EventArgs e)
+        {
+            // creates temp array to store old values of stickerValues
+            // adds values in stickerValues to temp array
+            int[] temp = new int[SIZE];
+            for (int i = 0; i < SIZE; i++)
+            {
+                temp[i] = stickerValues[i];
+            }
+
+            // updates stickerValues array with new values resulting from the turn
+            stickerValues[0] = temp[5];         stickerValues[10] = temp[16];
+            stickerValues[1] = temp[3];         stickerValues[16] = temp[29];
+            stickerValues[2] = temp[0];         stickerValues[19] = temp[30];
+            stickerValues[3] = temp[6];         stickerValues[21] = temp[31];
+            stickerValues[4] = temp[1];         stickerValues[29] = temp[39];
+            stickerValues[5] = temp[7];         stickerValues[30] = temp[36];
+            stickerValues[6] = temp[4];         stickerValues[31] = temp[34];
+            stickerValues[7] = temp[2];         stickerValues[34] = temp[8];
+            stickerValues[8] = temp[21];        stickerValues[36] = temp[9];
+            stickerValues[9] = temp[19];        stickerValues[39] = temp[10];
+
+            // updates stickers
+            UpdateStickers();
+        }
+
+        /// <summary>
+        /// Performs a counterclockwise, single upward turn.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        private void UpPrimeTurn(object sender, EventArgs e)
+        {
+            // creates temp array to store old values of stickerValues
+            // adds values in stickerValues to temp array
+            int[] temp = new int[SIZE];
+            for (int i = 0; i < SIZE; i++)
+            {
+                temp[i] = stickerValues[i];
+            }
+
+            // updates stickerValues array with new values resulting from the turn
+            stickerValues[0] = temp[2];         stickerValues[10] = temp[39];
+            stickerValues[1] = temp[4];         stickerValues[16] = temp[10];
+            stickerValues[2] = temp[7];         stickerValues[19] = temp[9];
+            stickerValues[3] = temp[1];         stickerValues[21] = temp[8];
+            stickerValues[4] = temp[6];         stickerValues[29] = temp[16];
+            stickerValues[5] = temp[0];         stickerValues[30] = temp[19];
+            stickerValues[6] = temp[3];         stickerValues[31] = temp[21];
+            stickerValues[7] = temp[5];         stickerValues[34] = temp[31];
+            stickerValues[8] = temp[34];        stickerValues[36] = temp[30];
+            stickerValues[9] = temp[36];        stickerValues[39] = temp[29];
+
+            // updates stickers
+            UpdateStickers();
+        }
+
+        /// <summary>
+        /// Performs a clockwise, single downward turn.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        private void DownTurn(object sender, EventArgs e)
+        {
+            // creates temp array to store old values of stickerValues
+            // adds values in stickerValues to temp array
+            int[] temp = new int[SIZE];
+            for (int i = 0; i < SIZE; i++)
+            {
+                temp[i] = stickerValues[i];
+            }
+
+            // updates stickerValues array with new values resulting from the turn
+            stickerValues[13] = temp[32];       stickerValues[35] = temp[25];
+            stickerValues[14] = temp[35];       stickerValues[37] = temp[24];
+            stickerValues[15] = temp[37];       stickerValues[40] = temp[45];
+            stickerValues[18] = temp[15];       stickerValues[41] = temp[43];
+            stickerValues[20] = temp[14];       stickerValues[42] = temp[40];
+            stickerValues[23] = temp[13];       stickerValues[43] = temp[46];
+            stickerValues[24] = temp[18];       stickerValues[44] = temp[41];
+            stickerValues[25] = temp[20];       stickerValues[45] = temp[47];
+            stickerValues[26] = temp[23];       stickerValues[46] = temp[44];
+            stickerValues[32] = temp[26];       stickerValues[47] = temp[42];
+
+            // updates stickers
+            UpdateStickers();
+        }
+
+        /// <summary>
+        /// Performs a counterclockwise, single downward turn.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        private void DownPrimeTurn(object sender, EventArgs e)
+        {
+            // creates temp array to store old values of stickerValues
+            // adds values in stickerValues to temp array
+            int[] temp = new int[SIZE];
+            for (int i = 0; i < SIZE; i++)
+            {
+                temp[i] = stickerValues[i];
+            }
+
+            // updates stickerValues array with new values resulting from the turn
+            stickerValues[13] = temp[23];       stickerValues[35] = temp[14];
+            stickerValues[14] = temp[20];       stickerValues[37] = temp[15];
+            stickerValues[15] = temp[18];       stickerValues[40] = temp[42];
+            stickerValues[18] = temp[24];       stickerValues[41] = temp[44];
+            stickerValues[20] = temp[25];       stickerValues[42] = temp[47];
+            stickerValues[23] = temp[26];       stickerValues[43] = temp[41];
+            stickerValues[24] = temp[37];       stickerValues[44] = temp[46];
+            stickerValues[25] = temp[35];       stickerValues[45] = temp[40];
+            stickerValues[26] = temp[32];       stickerValues[46] = temp[43];
+            stickerValues[32] = temp[13];       stickerValues[47] = temp[45];
+
+            // updates stickers
+            UpdateStickers();
+        }
+
+        /// <summary>
+        /// Performs a clockwise, single front turn.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        private void FrontTurn(object sender, EventArgs e)
+        {
+            // creates temp array to store old values of stickerValues
+            // adds values in stickerValues to temp array
+            int[] temp = new int[SIZE];
+            for (int i = 0; i < SIZE; i++)
+            {
+                temp[i] = stickerValues[i];
+            }
+
+            // updates stickerValues array with new values resulting from the turn
+            stickerValues[5] = temp[37];        stickerValues[15] = temp[10];
+            stickerValues[6] = temp[38];        stickerValues[21] = temp[5];
+            stickerValues[7] = temp[39];        stickerValues[22] = temp[6];
+            stickerValues[8] = temp[13];        stickerValues[23] = temp[7];
+            stickerValues[9] = temp[11];        stickerValues[37] = temp[45];
+            stickerValues[10] = temp[8];        stickerValues[38] = temp[46];
+            stickerValues[11] = temp[14];       stickerValues[39] = temp[47];
+            stickerValues[12] = temp[9];        stickerValues[45] = temp[21];
+            stickerValues[13] = temp[15];       stickerValues[46] = temp[22];
+            stickerValues[14] = temp[12];       stickerValues[47] = temp[23];
+
+            // updates stickers
+            UpdateStickers();
+        }
+
+        /// <summary>
+        /// Performs a counterclockwise, single front turn.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        private void FrontPrimeTurn(object sender, EventArgs e)
+        {
+            // creates temp array to store old values of stickerValues
+            // adds values in stickerValues to temp array
+            int[] temp = new int[SIZE];
+            for (int i = 0; i < SIZE; i++)
+            {
+                temp[i] = stickerValues[i];
+            }
+
+            // updates stickerValues array with new values resulting from the turn
+            stickerValues[5] = temp[21];        stickerValues[15] = temp[13];
+            stickerValues[6] = temp[22];        stickerValues[21] = temp[45];
+            stickerValues[7] = temp[23];        stickerValues[22] = temp[46];
+            stickerValues[8] = temp[10];        stickerValues[23] = temp[47];
+            stickerValues[9] = temp[12];        stickerValues[37] = temp[5];
+            stickerValues[10] = temp[15];       stickerValues[38] = temp[6];
+            stickerValues[11] = temp[9];        stickerValues[39] = temp[7];
+            stickerValues[12] = temp[14];       stickerValues[45] = temp[37];
+            stickerValues[13] = temp[8];        stickerValues[46] = temp[38];
+            stickerValues[14] = temp[11];       stickerValues[47] = temp[39];
+
+            // updates stickers
+            UpdateStickers();
+        }
+
+        /// <summary>
+        /// Performs a clockwise, single back turn.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        private void BackTurn(object sender, EventArgs e)
+        {
+            // creates temp array to store old values of stickerValues
+            // adds values in stickerValues to temp array
+            int[] temp = new int[SIZE];
+            for (int i = 0; i < SIZE; i++)
+            {
+                temp[i] = stickerValues[i];
+            }
+
+            // updates stickerValues array with new values resulting from the turn
+            stickerValues[0] = temp[16];        stickerValues[28] = temp[25];
+            stickerValues[1] = temp[17];        stickerValues[29] = temp[31];
+            stickerValues[2] = temp[18];        stickerValues[30] = temp[28];
+            stickerValues[16] = temp[40];       stickerValues[31] = temp[26];
+            stickerValues[17] = temp[41];       stickerValues[32] = temp[0];
+            stickerValues[18] = temp[42];       stickerValues[33] = temp[1];
+            stickerValues[24] = temp[29];       stickerValues[34] = temp[2];
+            stickerValues[25] = temp[27];       stickerValues[40] = temp[32];
+            stickerValues[26] = temp[24];       stickerValues[41] = temp[33];
+            stickerValues[27] = temp[30];       stickerValues[42] = temp[34];
+
+            // updates stickers
+            UpdateStickers();
+        }
+
+        /// <summary>
+        /// Performs a counterclockwise, single back turn.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        private void BackPrimeTurn(object sender, EventArgs e)
+        {
+            // creates temp array to store old values of stickerValues
+            // adds values in stickerValues to temp array
+            int[] temp = new int[SIZE];
+            for (int i = 0; i < SIZE; i++)
+            {
+                temp[i] = stickerValues[i];
+            }
+
+            // updates stickerValues array with new values resulting from the turn
+            stickerValues[0] = temp[32];        stickerValues[28] = temp[30];
+            stickerValues[1] = temp[33];        stickerValues[29] = temp[24];
+            stickerValues[2] = temp[34];        stickerValues[30] = temp[27];
+            stickerValues[16] = temp[0];        stickerValues[31] = temp[29];
+            stickerValues[17] = temp[1];        stickerValues[32] = temp[40];
+            stickerValues[18] = temp[2];        stickerValues[33] = temp[41];
+            stickerValues[24] = temp[26];       stickerValues[34] = temp[42];
+            stickerValues[25] = temp[28];       stickerValues[40] = temp[16];
+            stickerValues[26] = temp[31];       stickerValues[41] = temp[17];
+            stickerValues[27] = temp[25];       stickerValues[42] = temp[18];
 
             // updates stickers
             UpdateStickers();
@@ -113,6 +423,11 @@ namespace ProjectFinal_JDoctor
         /////////////////////////////////////////////////
         ///////////////// OTHER METHODS /////////////////
         /////////////////////////////////////////////////
+
+        private void Scramble()
+        {
+
+        }
 
         /// <summary>
         /// Updates stickerValues global array with number representing color
@@ -249,7 +564,7 @@ namespace ProjectFinal_JDoctor
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnClear_Click(object sender, EventArgs e)
+        private void btnReset_Click(object sender, EventArgs e)
         {
             /*
             foreach (PictureBox p in Controls)

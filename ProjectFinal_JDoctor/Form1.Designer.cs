@@ -38,7 +38,7 @@
             this.picG6 = new System.Windows.Forms.PictureBox();
             this.picG4 = new System.Windows.Forms.PictureBox();
             this.picG1 = new System.Windows.Forms.PictureBox();
-            this.btnClear = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.btnScramble = new System.Windows.Forms.Button();
             this.btnSolve = new System.Windows.Forms.Button();
             this.grpColors = new System.Windows.Forms.GroupBox();
@@ -127,9 +127,13 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.btnFrontPrime = new System.Windows.Forms.Button();
             this.btnUp = new System.Windows.Forms.Button();
-            this.btnDown = new System.Windows.Forms.Button();
             this.btnDownPrime = new System.Windows.Forms.Button();
+            this.btnDown = new System.Windows.Forms.Button();
             this.btnUpPrime = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.pnlGreen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picG8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picG7)).BeginInit();
@@ -306,18 +310,18 @@
             this.picG1.TabStop = false;
             this.picG1.Click += new System.EventHandler(this.ChangeColor);
             // 
-            // btnClear
+            // btnReset
             // 
-            this.btnClear.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnClear.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(154, 96);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(120, 40);
-            this.btnClear.TabIndex = 8;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.btnReset.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnReset.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.Location = new System.Drawing.Point(154, 96);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(120, 40);
+            this.btnReset.TabIndex = 8;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnScramble
             // 
@@ -1162,6 +1166,7 @@
             this.btnLeftPrime.TabIndex = 29;
             this.btnLeftPrime.Text = "▲";
             this.btnLeftPrime.UseVisualStyleBackColor = false;
+            this.btnLeftPrime.Click += new System.EventHandler(this.LeftPrimeTurn);
             // 
             // btnRight
             // 
@@ -1185,6 +1190,7 @@
             this.btnLeft.TabIndex = 31;
             this.btnLeft.Text = "▼";
             this.btnLeft.UseVisualStyleBackColor = false;
+            this.btnLeft.Click += new System.EventHandler(this.LeftTurn);
             // 
             // btnRightPrime
             // 
@@ -1208,6 +1214,7 @@
             this.btnBackPrime.TabIndex = 34;
             this.btnBackPrime.Text = "▶";
             this.btnBackPrime.UseVisualStyleBackColor = false;
+            this.btnBackPrime.Click += new System.EventHandler(this.BackPrimeTurn);
             // 
             // btnFront
             // 
@@ -1219,6 +1226,7 @@
             this.btnFront.TabIndex = 36;
             this.btnFront.Text = "▶";
             this.btnFront.UseVisualStyleBackColor = false;
+            this.btnFront.Click += new System.EventHandler(this.FrontTurn);
             // 
             // btnBack
             // 
@@ -1230,6 +1238,7 @@
             this.btnBack.TabIndex = 37;
             this.btnBack.Text = "◀";
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.BackTurn);
             // 
             // btnFrontPrime
             // 
@@ -1241,6 +1250,7 @@
             this.btnFrontPrime.TabIndex = 39;
             this.btnFrontPrime.Text = "◀";
             this.btnFrontPrime.UseVisualStyleBackColor = false;
+            this.btnFrontPrime.Click += new System.EventHandler(this.FrontPrimeTurn);
             // 
             // btnUp
             // 
@@ -1252,29 +1262,32 @@
             this.btnUp.TabIndex = 41;
             this.btnUp.Text = "⟳";
             this.btnUp.UseVisualStyleBackColor = false;
-            // 
-            // btnDown
-            // 
-            this.btnDown.BackColor = System.Drawing.Color.Yellow;
-            this.btnDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDown.Location = new System.Drawing.Point(612, 589);
-            this.btnDown.Name = "btnDown";
-            this.btnDown.Size = new System.Drawing.Size(35, 35);
-            this.btnDown.TabIndex = 42;
-            this.btnDown.Text = "⟳";
-            this.btnDown.UseVisualStyleBackColor = false;
+            this.btnUp.Click += new System.EventHandler(this.UpTurn);
             // 
             // btnDownPrime
             // 
             this.btnDownPrime.BackColor = System.Drawing.Color.Yellow;
             this.btnDownPrime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDownPrime.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDownPrime.Location = new System.Drawing.Point(897, 864);
+            this.btnDownPrime.Location = new System.Drawing.Point(612, 589);
             this.btnDownPrime.Name = "btnDownPrime";
             this.btnDownPrime.Size = new System.Drawing.Size(35, 35);
-            this.btnDownPrime.TabIndex = 43;
+            this.btnDownPrime.TabIndex = 42;
             this.btnDownPrime.Text = "⟲";
             this.btnDownPrime.UseVisualStyleBackColor = false;
+            this.btnDownPrime.Click += new System.EventHandler(this.DownPrimeTurn);
+            // 
+            // btnDown
+            // 
+            this.btnDown.BackColor = System.Drawing.Color.Yellow;
+            this.btnDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDown.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnDown.Location = new System.Drawing.Point(897, 870);
+            this.btnDown.Name = "btnDown";
+            this.btnDown.Size = new System.Drawing.Size(35, 35);
+            this.btnDown.TabIndex = 43;
+            this.btnDown.Text = "⟳";
+            this.btnDown.UseVisualStyleBackColor = false;
+            this.btnDown.Click += new System.EventHandler(this.DownTurn);
             // 
             // btnUpPrime
             // 
@@ -1287,6 +1300,39 @@
             this.btnUpPrime.TabIndex = 44;
             this.btnUpPrime.Text = "⟲";
             this.btnUpPrime.UseVisualStyleBackColor = false;
+            this.btnUpPrime.Click += new System.EventHandler(this.UpPrimeTurn);
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Orange;
+            this.label2.Location = new System.Drawing.Point(631, 626);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(18, 240);
+            this.label2.TabIndex = 45;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(893, 627);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(18, 240);
+            this.label3.TabIndex = 46;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.Green;
+            this.label4.Location = new System.Drawing.Point(651, 605);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(240, 18);
+            this.label4.TabIndex = 47;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.Blue;
+            this.label5.Location = new System.Drawing.Point(651, 870);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(240, 18);
+            this.label5.TabIndex = 48;
             // 
             // Form1
             // 
@@ -1294,11 +1340,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.CancelButton = this.btnClear;
+            this.CancelButton = this.btnReset;
             this.ClientSize = new System.Drawing.Size(1018, 960);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnUpPrime);
-            this.Controls.Add(this.btnDownPrime);
             this.Controls.Add(this.btnDown);
+            this.Controls.Add(this.btnDownPrime);
             this.Controls.Add(this.btnUp);
             this.Controls.Add(this.btnFrontPrime);
             this.Controls.Add(this.btnBack);
@@ -1320,7 +1370,7 @@
             this.Controls.Add(this.grpColors);
             this.Controls.Add(this.btnSolve);
             this.Controls.Add(this.btnScramble);
-            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.pnlGreen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
@@ -1402,7 +1452,7 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlGreen;
-        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnScramble;
         private System.Windows.Forms.Button btnSolve;
         private System.Windows.Forms.PictureBox picG8;
@@ -1492,8 +1542,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblRight;
         private System.Windows.Forms.Button btnUp;
-        private System.Windows.Forms.Button btnDown;
         private System.Windows.Forms.Button btnDownPrime;
+        private System.Windows.Forms.Button btnDown;
         private System.Windows.Forms.Button btnUpPrime;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox7;
@@ -1503,6 +1553,10 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
 
