@@ -591,8 +591,86 @@ namespace ProjectFinal_JDoctor
             // More housekeeping
             radDisabled.Checked = true;
             radGreen.Checked = true;
+            radEasy.Checked = true;
 
         }
-        
+
+        /// <summary>
+        /// Randomly scrambles cube into one of four difficulties.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnScramble_Click(object sender, EventArgs e)
+        {
+            int difficulty;                 // number of random turns
+            int turn;                       // represents turn, which is selected randomly
+            Random rand = new Random();     // Random object, used to determine which turns to call
+
+            // determines difficulty level
+            if (radEasy.Checked)
+            {
+                difficulty = 2;
+            }
+            else if (radNormal.Checked)
+            {
+                difficulty = 3;
+            }
+            else if (radHard.Checked)
+            {
+                difficulty = 4;
+            }
+            else
+            {
+                difficulty = 5;
+            }
+
+            for (int i = 0; i < difficulty; i++)
+            {
+                // figures out which turn to call
+                turn = rand.Next(1, 13);
+
+                // calls selected turn
+                switch (turn)
+                {
+                    case 1:
+                        RightTurn(sender, e);
+                        break;
+                    case 2:
+                        RightPrimeTurn(sender, e);
+                        break;
+                    case 3:
+                        LeftTurn(sender, e);
+                        break;
+                    case 4:
+                        LeftPrimeTurn(sender, e);
+                        break;
+                    case 5:
+                        UpTurn(sender, e);
+                        break;
+                    case 6:
+                        UpPrimeTurn(sender, e);
+                        break;
+                    case 7:
+                        DownTurn(sender, e);
+                        break;
+                    case 8:
+                        DownPrimeTurn(sender, e);
+                        break;
+                    case 9:
+                        FrontTurn(sender, e);
+                        break;
+                    case 10:
+                        FrontPrimeTurn(sender, e);
+                        break;
+                    case 11:
+                        BackTurn(sender, e);
+                        break;
+                    case 12:
+                        BackPrimeTurn(sender, e);
+                        break;
+                }
+            }
+
+        }
     }
 }

@@ -134,6 +134,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.radEasy = new System.Windows.Forms.RadioButton();
+            this.radNormal = new System.Windows.Forms.RadioButton();
+            this.radHard = new System.Windows.Forms.RadioButton();
+            this.radVeryHard = new System.Windows.Forms.RadioButton();
             this.pnlGreen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picG8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picG7)).BeginInit();
@@ -199,6 +204,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picY1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlGreen
@@ -315,9 +321,9 @@
             this.btnReset.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnReset.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Location = new System.Drawing.Point(154, 96);
+            this.btnReset.Location = new System.Drawing.Point(33, 96);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(120, 40);
+            this.btnReset.Size = new System.Drawing.Size(241, 34);
             this.btnReset.TabIndex = 8;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
@@ -328,18 +334,19 @@
             this.btnScramble.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnScramble.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnScramble.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnScramble.Location = new System.Drawing.Point(154, 171);
+            this.btnScramble.Location = new System.Drawing.Point(33, 145);
             this.btnScramble.Name = "btnScramble";
-            this.btnScramble.Size = new System.Drawing.Size(120, 40);
+            this.btnScramble.Size = new System.Drawing.Size(241, 34);
             this.btnScramble.TabIndex = 9;
             this.btnScramble.Text = "Scramble";
             this.btnScramble.UseVisualStyleBackColor = false;
+            this.btnScramble.Click += new System.EventHandler(this.btnScramble_Click);
             // 
             // btnSolve
             // 
             this.btnSolve.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSolve.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSolve.Location = new System.Drawing.Point(154, 246);
+            this.btnSolve.Location = new System.Drawing.Point(738, 125);
             this.btnSolve.Name = "btnSolve";
             this.btnSolve.Size = new System.Drawing.Size(120, 40);
             this.btnSolve.TabIndex = 10;
@@ -1124,30 +1131,30 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(138, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(208, 6);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(141, 30);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
             this.saveToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(141, 30);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
             this.openToolStripMenuItem.Text = "Save";
             // 
             // openToolStripMenuItem1
             // 
             this.openToolStripMenuItem1.Name = "openToolStripMenuItem1";
-            this.openToolStripMenuItem1.Size = new System.Drawing.Size(141, 30);
+            this.openToolStripMenuItem1.Size = new System.Drawing.Size(211, 30);
             this.openToolStripMenuItem1.Text = "Open";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(141, 30);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // helpToolStripMenuItem
@@ -1334,6 +1341,60 @@
             this.label5.Size = new System.Drawing.Size(240, 18);
             this.label5.TabIndex = 48;
             // 
+            // panel6
+            // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel6.Controls.Add(this.radVeryHard);
+            this.panel6.Controls.Add(this.radHard);
+            this.panel6.Controls.Add(this.radNormal);
+            this.panel6.Controls.Add(this.radEasy);
+            this.panel6.Location = new System.Drawing.Point(61, 194);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(187, 57);
+            this.panel6.TabIndex = 49;
+            // 
+            // radEasy
+            // 
+            this.radEasy.AutoSize = true;
+            this.radEasy.Checked = true;
+            this.radEasy.Location = new System.Drawing.Point(3, 3);
+            this.radEasy.Name = "radEasy";
+            this.radEasy.Size = new System.Drawing.Size(69, 24);
+            this.radEasy.TabIndex = 0;
+            this.radEasy.TabStop = true;
+            this.radEasy.Text = "Easy";
+            this.radEasy.UseVisualStyleBackColor = true;
+            // 
+            // radNormal
+            // 
+            this.radNormal.AutoSize = true;
+            this.radNormal.Location = new System.Drawing.Point(78, 3);
+            this.radNormal.Name = "radNormal";
+            this.radNormal.Size = new System.Drawing.Size(84, 24);
+            this.radNormal.TabIndex = 1;
+            this.radNormal.Text = "Normal";
+            this.radNormal.UseVisualStyleBackColor = true;
+            // 
+            // radHard
+            // 
+            this.radHard.AutoSize = true;
+            this.radHard.Location = new System.Drawing.Point(3, 30);
+            this.radHard.Name = "radHard";
+            this.radHard.Size = new System.Drawing.Size(69, 24);
+            this.radHard.TabIndex = 2;
+            this.radHard.Text = "Hard";
+            this.radHard.UseVisualStyleBackColor = true;
+            // 
+            // radVeryHard
+            // 
+            this.radVeryHard.AutoSize = true;
+            this.radVeryHard.Location = new System.Drawing.Point(78, 30);
+            this.radVeryHard.Name = "radVeryHard";
+            this.radVeryHard.Size = new System.Drawing.Size(105, 24);
+            this.radVeryHard.TabIndex = 3;
+            this.radVeryHard.Text = "Very Hard";
+            this.radVeryHard.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AcceptButton = this.btnSolve;
@@ -1342,6 +1403,7 @@
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.CancelButton = this.btnReset;
             this.ClientSize = new System.Drawing.Size(1018, 960);
+            this.Controls.Add(this.panel6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -1444,6 +1506,8 @@
             this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1557,6 +1621,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.RadioButton radVeryHard;
+        private System.Windows.Forms.RadioButton radHard;
+        private System.Windows.Forms.RadioButton radNormal;
+        private System.Windows.Forms.RadioButton radEasy;
     }
 }
 
