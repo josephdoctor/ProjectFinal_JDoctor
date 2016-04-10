@@ -135,10 +135,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.radEasy = new System.Windows.Forms.RadioButton();
-            this.radNormal = new System.Windows.Forms.RadioButton();
-            this.radHard = new System.Windows.Forms.RadioButton();
             this.radVeryHard = new System.Windows.Forms.RadioButton();
+            this.radHard = new System.Windows.Forms.RadioButton();
+            this.radNormal = new System.Windows.Forms.RadioButton();
+            this.radEasy = new System.Windows.Forms.RadioButton();
             this.pnlGreen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picG8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picG7)).BeginInit();
@@ -1131,30 +1131,30 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(208, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(138, 6);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(141, 30);
             this.saveToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(141, 30);
             this.openToolStripMenuItem.Text = "Save";
             // 
             // openToolStripMenuItem1
             // 
             this.openToolStripMenuItem1.Name = "openToolStripMenuItem1";
-            this.openToolStripMenuItem1.Size = new System.Drawing.Size(211, 30);
+            this.openToolStripMenuItem1.Size = new System.Drawing.Size(141, 30);
             this.openToolStripMenuItem1.Text = "Open";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(141, 30);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // helpToolStripMenuItem
@@ -1173,7 +1173,7 @@
             this.btnLeftPrime.TabIndex = 29;
             this.btnLeftPrime.Text = "▲";
             this.btnLeftPrime.UseVisualStyleBackColor = false;
-            this.btnLeftPrime.Click += new System.EventHandler(this.LeftPrimeTurn);
+            this.btnLeftPrime.Click += new System.EventHandler(this.btnLeftPrime_Click);
             // 
             // btnRight
             // 
@@ -1185,7 +1185,7 @@
             this.btnRight.TabIndex = 30;
             this.btnRight.Text = "▲";
             this.btnRight.UseVisualStyleBackColor = false;
-            this.btnRight.Click += new System.EventHandler(this.RightTurn);
+            this.btnRight.Click += new System.EventHandler(this.btnRight_Click);
             // 
             // btnLeft
             // 
@@ -1197,7 +1197,7 @@
             this.btnLeft.TabIndex = 31;
             this.btnLeft.Text = "▼";
             this.btnLeft.UseVisualStyleBackColor = false;
-            this.btnLeft.Click += new System.EventHandler(this.LeftTurn);
+            this.btnLeft.Click += new System.EventHandler(this.btnLeft_Click);
             // 
             // btnRightPrime
             // 
@@ -1209,7 +1209,7 @@
             this.btnRightPrime.TabIndex = 33;
             this.btnRightPrime.Text = "▼";
             this.btnRightPrime.UseVisualStyleBackColor = false;
-            this.btnRightPrime.Click += new System.EventHandler(this.RightPrimeTurn);
+            this.btnRightPrime.Click += new System.EventHandler(this.btnRightPrime_Click);
             // 
             // btnBackPrime
             // 
@@ -1221,7 +1221,7 @@
             this.btnBackPrime.TabIndex = 34;
             this.btnBackPrime.Text = "▶";
             this.btnBackPrime.UseVisualStyleBackColor = false;
-            this.btnBackPrime.Click += new System.EventHandler(this.BackPrimeTurn);
+            this.btnBackPrime.Click += new System.EventHandler(this.btnBackPrime_Click);
             // 
             // btnFront
             // 
@@ -1233,7 +1233,7 @@
             this.btnFront.TabIndex = 36;
             this.btnFront.Text = "▶";
             this.btnFront.UseVisualStyleBackColor = false;
-            this.btnFront.Click += new System.EventHandler(this.FrontTurn);
+            this.btnFront.Click += new System.EventHandler(this.btnFront_Click);
             // 
             // btnBack
             // 
@@ -1245,7 +1245,7 @@
             this.btnBack.TabIndex = 37;
             this.btnBack.Text = "◀";
             this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.BackTurn);
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnFrontPrime
             // 
@@ -1257,7 +1257,7 @@
             this.btnFrontPrime.TabIndex = 39;
             this.btnFrontPrime.Text = "◀";
             this.btnFrontPrime.UseVisualStyleBackColor = false;
-            this.btnFrontPrime.Click += new System.EventHandler(this.FrontPrimeTurn);
+            this.btnFrontPrime.Click += new System.EventHandler(this.btnFrontPrime_Click);
             // 
             // btnUp
             // 
@@ -1269,7 +1269,7 @@
             this.btnUp.TabIndex = 41;
             this.btnUp.Text = "⟳";
             this.btnUp.UseVisualStyleBackColor = false;
-            this.btnUp.Click += new System.EventHandler(this.UpTurn);
+            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
             // 
             // btnDownPrime
             // 
@@ -1281,7 +1281,7 @@
             this.btnDownPrime.TabIndex = 42;
             this.btnDownPrime.Text = "⟲";
             this.btnDownPrime.UseVisualStyleBackColor = false;
-            this.btnDownPrime.Click += new System.EventHandler(this.DownPrimeTurn);
+            this.btnDownPrime.Click += new System.EventHandler(this.btnDownPrime_Click);
             // 
             // btnDown
             // 
@@ -1294,7 +1294,7 @@
             this.btnDown.TabIndex = 43;
             this.btnDown.Text = "⟳";
             this.btnDown.UseVisualStyleBackColor = false;
-            this.btnDown.Click += new System.EventHandler(this.DownTurn);
+            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
             // 
             // btnUpPrime
             // 
@@ -1307,7 +1307,7 @@
             this.btnUpPrime.TabIndex = 44;
             this.btnUpPrime.Text = "⟲";
             this.btnUpPrime.UseVisualStyleBackColor = false;
-            this.btnUpPrime.Click += new System.EventHandler(this.UpPrimeTurn);
+            this.btnUpPrime.Click += new System.EventHandler(this.btnUpPrime_Click);
             // 
             // label2
             // 
@@ -1353,27 +1353,15 @@
             this.panel6.Size = new System.Drawing.Size(187, 57);
             this.panel6.TabIndex = 49;
             // 
-            // radEasy
+            // radVeryHard
             // 
-            this.radEasy.AutoSize = true;
-            this.radEasy.Checked = true;
-            this.radEasy.Location = new System.Drawing.Point(3, 3);
-            this.radEasy.Name = "radEasy";
-            this.radEasy.Size = new System.Drawing.Size(69, 24);
-            this.radEasy.TabIndex = 0;
-            this.radEasy.TabStop = true;
-            this.radEasy.Text = "Easy";
-            this.radEasy.UseVisualStyleBackColor = true;
-            // 
-            // radNormal
-            // 
-            this.radNormal.AutoSize = true;
-            this.radNormal.Location = new System.Drawing.Point(78, 3);
-            this.radNormal.Name = "radNormal";
-            this.radNormal.Size = new System.Drawing.Size(84, 24);
-            this.radNormal.TabIndex = 1;
-            this.radNormal.Text = "Normal";
-            this.radNormal.UseVisualStyleBackColor = true;
+            this.radVeryHard.AutoSize = true;
+            this.radVeryHard.Location = new System.Drawing.Point(78, 30);
+            this.radVeryHard.Name = "radVeryHard";
+            this.radVeryHard.Size = new System.Drawing.Size(105, 24);
+            this.radVeryHard.TabIndex = 3;
+            this.radVeryHard.Text = "Very Hard";
+            this.radVeryHard.UseVisualStyleBackColor = true;
             // 
             // radHard
             // 
@@ -1385,15 +1373,27 @@
             this.radHard.Text = "Hard";
             this.radHard.UseVisualStyleBackColor = true;
             // 
-            // radVeryHard
+            // radNormal
             // 
-            this.radVeryHard.AutoSize = true;
-            this.radVeryHard.Location = new System.Drawing.Point(78, 30);
-            this.radVeryHard.Name = "radVeryHard";
-            this.radVeryHard.Size = new System.Drawing.Size(105, 24);
-            this.radVeryHard.TabIndex = 3;
-            this.radVeryHard.Text = "Very Hard";
-            this.radVeryHard.UseVisualStyleBackColor = true;
+            this.radNormal.AutoSize = true;
+            this.radNormal.Location = new System.Drawing.Point(78, 3);
+            this.radNormal.Name = "radNormal";
+            this.radNormal.Size = new System.Drawing.Size(84, 24);
+            this.radNormal.TabIndex = 1;
+            this.radNormal.Text = "Normal";
+            this.radNormal.UseVisualStyleBackColor = true;
+            // 
+            // radEasy
+            // 
+            this.radEasy.AutoSize = true;
+            this.radEasy.Checked = true;
+            this.radEasy.Location = new System.Drawing.Point(3, 3);
+            this.radEasy.Name = "radEasy";
+            this.radEasy.Size = new System.Drawing.Size(69, 24);
+            this.radEasy.TabIndex = 0;
+            this.radEasy.TabStop = true;
+            this.radEasy.Text = "Easy";
+            this.radEasy.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

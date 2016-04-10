@@ -12,26 +12,18 @@ namespace ProjectFinal_JDoctor
 {
     public partial class Form1 : Form
     {
+        // constructs a cube object
+        Cube myCube = new Cube();
 
-        // global constants for each color
+        // global variables
+        private PictureBox[] stickers;
         const int WHITE = 1;
         const int BLUE = 2;
         const int ORANGE = 3;
         const int GREEN = 4;
         const int RED = 5;
         const int YELLOW = 6;
-
-        // global constant for number of stickers
         const int SIZE = 48;
-
-        // global array containing color values for each sticker on cube
-        private int[] stickerValues = new int[SIZE] { WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, BLUE, BLUE, BLUE, BLUE,
-                                                      BLUE, BLUE, BLUE, BLUE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE,
-                                                      GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, RED, RED, RED, RED,
-                                                      RED, RED, RED, RED, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW };
-
-        // global array for picturebox controls
-        private PictureBox[] stickers;
 
         public Form1()
         {
@@ -43,425 +35,39 @@ namespace ProjectFinal_JDoctor
                                           picR5, picR6, picR7, picR8, picY1, picY2, picY3, picY4, picY5, picY6, picY7, picY8 };
         }
 
-
-        /////////////////////////////////////////////////////
-        ////////////// CUBE MANUEVERS ///////////////////////
-        /////////////////////////////////////////////////////
-
         /// <summary>
-        /// Performs a clockwise, single right turn.
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        private void RightTurn(object sender, EventArgs e)
-        {
-            // creates temp array to store old values of stickerValues
-            // adds values in stickerValues to temp array
-            int[] temp = new int[SIZE];
-            for (int i = 0; i < SIZE; i++)
-            {
-                temp[i] = stickerValues[i];
-            }
-
-            // updates stickerValues array with new values resulting from the turn
-            stickerValues[2] = temp[10];        stickerValues[20] = temp[17];
-            stickerValues[4] = temp[12];        stickerValues[21] = temp[23];
-            stickerValues[7] = temp[15];        stickerValues[22] = temp[20];
-            stickerValues[10] = temp[45];       stickerValues[23] = temp[18];
-            stickerValues[12] = temp[43];       stickerValues[26] = temp[2];
-            stickerValues[15] = temp[40];       stickerValues[28] = temp[4];
-            stickerValues[16] = temp[21];       stickerValues[31] = temp[7];
-            stickerValues[17] = temp[19];       stickerValues[40] = temp[31];
-            stickerValues[18] = temp[16];       stickerValues[43] = temp[28];
-            stickerValues[19] = temp[22];       stickerValues[45] = temp[26];
-
-            // updates stickers
-            UpdateStickers();
-        }
-
-        /// <summary>
-        /// Performs a counterclockwise, single right turn.
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        private void RightPrimeTurn(object sender, EventArgs e)
-        {
-            // creates temp array to store old values of stickerValues
-            // adds values in stickerValues to temp array
-            int[] temp = new int[SIZE];
-            for (int i = 0; i < SIZE; i++)
-            {
-                temp[i] = stickerValues[i];
-            }
-
-            // updates stickerValues array with new values resulting from the turn
-            stickerValues[2] = temp[26];        stickerValues[20] = temp[22];
-            stickerValues[4] = temp[28];        stickerValues[21] = temp[16];
-            stickerValues[7] = temp[31];        stickerValues[22] = temp[19];
-            stickerValues[10] = temp[2];        stickerValues[23] = temp[21];
-            stickerValues[12] = temp[4];        stickerValues[26] = temp[45];
-            stickerValues[15] = temp[7];        stickerValues[28] = temp[43];
-            stickerValues[16] = temp[18];       stickerValues[31] = temp[40];
-            stickerValues[17] = temp[20];       stickerValues[40] = temp[15];
-            stickerValues[18] = temp[23];       stickerValues[43] = temp[12];
-            stickerValues[19] = temp[17];       stickerValues[45] = temp[10];
-
-            // updates stickers
-            UpdateStickers();
-        }
-
-        /// <summary>
-        /// Performs a clockwise, single left turn.
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        private void LeftTurn(object sender, EventArgs e)
-        {
-            // creates temp array to store old values of stickerValues
-            // adds values in stickerValues to temp array
-            int[] temp = new int[SIZE];
-            for (int i = 0; i < SIZE; i++)
-            {
-                temp[i] = stickerValues[i];
-            }
-
-            // updates stickerValues array with new values resulting from the turn
-            stickerValues[0] = temp[24];        stickerValues[33] = temp[35];
-            stickerValues[3] = temp[27];        stickerValues[34] = temp[32];
-            stickerValues[5] = temp[29];        stickerValues[35] = temp[38];
-            stickerValues[8] = temp[0];         stickerValues[36] = temp[33];
-            stickerValues[11] = temp[3];        stickerValues[37] = temp[39];
-            stickerValues[13] = temp[5];        stickerValues[38] = temp[36];
-            stickerValues[24] = temp[47];       stickerValues[39] = temp[34];
-            stickerValues[27] = temp[44];       stickerValues[42] = temp[13];
-            stickerValues[29] = temp[42];       stickerValues[44] = temp[11];
-            stickerValues[32] = temp[37];       stickerValues[47] = temp[8];
-
-            // updates stickers
-            UpdateStickers();
-        }
-
-        /// <summary>
-        /// Performs a counterclockwise, single left turn.
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        private void LeftPrimeTurn(object sender, EventArgs e)
-        {
-            // creates temp array to store old values of stickerValues
-            // adds values in stickerValues to temp array
-            int[] temp = new int[SIZE];
-            for (int i = 0; i < SIZE; i++)
-            {
-                temp[i] = stickerValues[i];
-            }
-
-            // updates stickerValues array with new values resulting from the turn
-            stickerValues[0] = temp[8];         stickerValues[33] = temp[36];
-            stickerValues[3] = temp[11];        stickerValues[34] = temp[39];
-            stickerValues[5] = temp[13];        stickerValues[35] = temp[33];
-            stickerValues[8] = temp[47];        stickerValues[36] = temp[38];
-            stickerValues[11] = temp[44];       stickerValues[37] = temp[32];
-            stickerValues[13] = temp[42];       stickerValues[38] = temp[35];
-            stickerValues[24] = temp[0];        stickerValues[39] = temp[37];
-            stickerValues[27] = temp[3];        stickerValues[42] = temp[29];
-            stickerValues[29] = temp[5];        stickerValues[44] = temp[27];
-            stickerValues[32] = temp[34];       stickerValues[47] = temp[24];
-
-            // updates stickers
-            UpdateStickers();
-        }
-
-        /// <summary>
-        /// Performs a clockwise, single upward turn.
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        private void UpTurn(object sender, EventArgs e)
-        {
-            // creates temp array to store old values of stickerValues
-            // adds values in stickerValues to temp array
-            int[] temp = new int[SIZE];
-            for (int i = 0; i < SIZE; i++)
-            {
-                temp[i] = stickerValues[i];
-            }
-
-            // updates stickerValues array with new values resulting from the turn
-            stickerValues[0] = temp[5];         stickerValues[10] = temp[16];
-            stickerValues[1] = temp[3];         stickerValues[16] = temp[29];
-            stickerValues[2] = temp[0];         stickerValues[19] = temp[30];
-            stickerValues[3] = temp[6];         stickerValues[21] = temp[31];
-            stickerValues[4] = temp[1];         stickerValues[29] = temp[39];
-            stickerValues[5] = temp[7];         stickerValues[30] = temp[36];
-            stickerValues[6] = temp[4];         stickerValues[31] = temp[34];
-            stickerValues[7] = temp[2];         stickerValues[34] = temp[8];
-            stickerValues[8] = temp[21];        stickerValues[36] = temp[9];
-            stickerValues[9] = temp[19];        stickerValues[39] = temp[10];
-
-            // updates stickers
-            UpdateStickers();
-        }
-
-        /// <summary>
-        /// Performs a counterclockwise, single upward turn.
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        private void UpPrimeTurn(object sender, EventArgs e)
-        {
-            // creates temp array to store old values of stickerValues
-            // adds values in stickerValues to temp array
-            int[] temp = new int[SIZE];
-            for (int i = 0; i < SIZE; i++)
-            {
-                temp[i] = stickerValues[i];
-            }
-
-            // updates stickerValues array with new values resulting from the turn
-            stickerValues[0] = temp[2];         stickerValues[10] = temp[39];
-            stickerValues[1] = temp[4];         stickerValues[16] = temp[10];
-            stickerValues[2] = temp[7];         stickerValues[19] = temp[9];
-            stickerValues[3] = temp[1];         stickerValues[21] = temp[8];
-            stickerValues[4] = temp[6];         stickerValues[29] = temp[16];
-            stickerValues[5] = temp[0];         stickerValues[30] = temp[19];
-            stickerValues[6] = temp[3];         stickerValues[31] = temp[21];
-            stickerValues[7] = temp[5];         stickerValues[34] = temp[31];
-            stickerValues[8] = temp[34];        stickerValues[36] = temp[30];
-            stickerValues[9] = temp[36];        stickerValues[39] = temp[29];
-
-            // updates stickers
-            UpdateStickers();
-        }
-
-        /// <summary>
-        /// Performs a clockwise, single downward turn.
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        private void DownTurn(object sender, EventArgs e)
-        {
-            // creates temp array to store old values of stickerValues
-            // adds values in stickerValues to temp array
-            int[] temp = new int[SIZE];
-            for (int i = 0; i < SIZE; i++)
-            {
-                temp[i] = stickerValues[i];
-            }
-
-            // updates stickerValues array with new values resulting from the turn
-            stickerValues[13] = temp[32];       stickerValues[35] = temp[25];
-            stickerValues[14] = temp[35];       stickerValues[37] = temp[24];
-            stickerValues[15] = temp[37];       stickerValues[40] = temp[45];
-            stickerValues[18] = temp[15];       stickerValues[41] = temp[43];
-            stickerValues[20] = temp[14];       stickerValues[42] = temp[40];
-            stickerValues[23] = temp[13];       stickerValues[43] = temp[46];
-            stickerValues[24] = temp[18];       stickerValues[44] = temp[41];
-            stickerValues[25] = temp[20];       stickerValues[45] = temp[47];
-            stickerValues[26] = temp[23];       stickerValues[46] = temp[44];
-            stickerValues[32] = temp[26];       stickerValues[47] = temp[42];
-
-            // updates stickers
-            UpdateStickers();
-        }
-
-        /// <summary>
-        /// Performs a counterclockwise, single downward turn.
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        private void DownPrimeTurn(object sender, EventArgs e)
-        {
-            // creates temp array to store old values of stickerValues
-            // adds values in stickerValues to temp array
-            int[] temp = new int[SIZE];
-            for (int i = 0; i < SIZE; i++)
-            {
-                temp[i] = stickerValues[i];
-            }
-
-            // updates stickerValues array with new values resulting from the turn
-            stickerValues[13] = temp[23];       stickerValues[35] = temp[14];
-            stickerValues[14] = temp[20];       stickerValues[37] = temp[15];
-            stickerValues[15] = temp[18];       stickerValues[40] = temp[42];
-            stickerValues[18] = temp[24];       stickerValues[41] = temp[44];
-            stickerValues[20] = temp[25];       stickerValues[42] = temp[47];
-            stickerValues[23] = temp[26];       stickerValues[43] = temp[41];
-            stickerValues[24] = temp[37];       stickerValues[44] = temp[46];
-            stickerValues[25] = temp[35];       stickerValues[45] = temp[40];
-            stickerValues[26] = temp[32];       stickerValues[46] = temp[43];
-            stickerValues[32] = temp[13];       stickerValues[47] = temp[45];
-
-            // updates stickers
-            UpdateStickers();
-        }
-
-        /// <summary>
-        /// Performs a clockwise, single front turn.
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        private void FrontTurn(object sender, EventArgs e)
-        {
-            // creates temp array to store old values of stickerValues
-            // adds values in stickerValues to temp array
-            int[] temp = new int[SIZE];
-            for (int i = 0; i < SIZE; i++)
-            {
-                temp[i] = stickerValues[i];
-            }
-
-            // updates stickerValues array with new values resulting from the turn
-            stickerValues[5] = temp[37];        stickerValues[15] = temp[10];
-            stickerValues[6] = temp[38];        stickerValues[21] = temp[5];
-            stickerValues[7] = temp[39];        stickerValues[22] = temp[6];
-            stickerValues[8] = temp[13];        stickerValues[23] = temp[7];
-            stickerValues[9] = temp[11];        stickerValues[37] = temp[45];
-            stickerValues[10] = temp[8];        stickerValues[38] = temp[46];
-            stickerValues[11] = temp[14];       stickerValues[39] = temp[47];
-            stickerValues[12] = temp[9];        stickerValues[45] = temp[21];
-            stickerValues[13] = temp[15];       stickerValues[46] = temp[22];
-            stickerValues[14] = temp[12];       stickerValues[47] = temp[23];
-
-            // updates stickers
-            UpdateStickers();
-        }
-
-        /// <summary>
-        /// Performs a counterclockwise, single front turn.
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        private void FrontPrimeTurn(object sender, EventArgs e)
-        {
-            // creates temp array to store old values of stickerValues
-            // adds values in stickerValues to temp array
-            int[] temp = new int[SIZE];
-            for (int i = 0; i < SIZE; i++)
-            {
-                temp[i] = stickerValues[i];
-            }
-
-            // updates stickerValues array with new values resulting from the turn
-            stickerValues[5] = temp[21];        stickerValues[15] = temp[13];
-            stickerValues[6] = temp[22];        stickerValues[21] = temp[45];
-            stickerValues[7] = temp[23];        stickerValues[22] = temp[46];
-            stickerValues[8] = temp[10];        stickerValues[23] = temp[47];
-            stickerValues[9] = temp[12];        stickerValues[37] = temp[5];
-            stickerValues[10] = temp[15];       stickerValues[38] = temp[6];
-            stickerValues[11] = temp[9];        stickerValues[39] = temp[7];
-            stickerValues[12] = temp[14];       stickerValues[45] = temp[37];
-            stickerValues[13] = temp[8];        stickerValues[46] = temp[38];
-            stickerValues[14] = temp[11];       stickerValues[47] = temp[39];
-
-            // updates stickers
-            UpdateStickers();
-        }
-
-        /// <summary>
-        /// Performs a clockwise, single back turn.
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        private void BackTurn(object sender, EventArgs e)
-        {
-            // creates temp array to store old values of stickerValues
-            // adds values in stickerValues to temp array
-            int[] temp = new int[SIZE];
-            for (int i = 0; i < SIZE; i++)
-            {
-                temp[i] = stickerValues[i];
-            }
-
-            // updates stickerValues array with new values resulting from the turn
-            stickerValues[0] = temp[16];        stickerValues[28] = temp[25];
-            stickerValues[1] = temp[17];        stickerValues[29] = temp[31];
-            stickerValues[2] = temp[18];        stickerValues[30] = temp[28];
-            stickerValues[16] = temp[40];       stickerValues[31] = temp[26];
-            stickerValues[17] = temp[41];       stickerValues[32] = temp[0];
-            stickerValues[18] = temp[42];       stickerValues[33] = temp[1];
-            stickerValues[24] = temp[29];       stickerValues[34] = temp[2];
-            stickerValues[25] = temp[27];       stickerValues[40] = temp[32];
-            stickerValues[26] = temp[24];       stickerValues[41] = temp[33];
-            stickerValues[27] = temp[30];       stickerValues[42] = temp[34];
-
-            // updates stickers
-            UpdateStickers();
-        }
-
-        /// <summary>
-        /// Performs a counterclockwise, single back turn.
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        private void BackPrimeTurn(object sender, EventArgs e)
-        {
-            // creates temp array to store old values of stickerValues
-            // adds values in stickerValues to temp array
-            int[] temp = new int[SIZE];
-            for (int i = 0; i < SIZE; i++)
-            {
-                temp[i] = stickerValues[i];
-            }
-
-            // updates stickerValues array with new values resulting from the turn
-            stickerValues[0] = temp[32];        stickerValues[28] = temp[30];
-            stickerValues[1] = temp[33];        stickerValues[29] = temp[24];
-            stickerValues[2] = temp[34];        stickerValues[30] = temp[27];
-            stickerValues[16] = temp[0];        stickerValues[31] = temp[29];
-            stickerValues[17] = temp[1];        stickerValues[32] = temp[40];
-            stickerValues[18] = temp[2];        stickerValues[33] = temp[41];
-            stickerValues[24] = temp[26];       stickerValues[34] = temp[42];
-            stickerValues[25] = temp[28];       stickerValues[40] = temp[16];
-            stickerValues[26] = temp[31];       stickerValues[41] = temp[17];
-            stickerValues[27] = temp[25];       stickerValues[42] = temp[18];
-
-            // updates stickers
-            UpdateStickers();
-        }
-
-        /////////////////////////////////////////////////
-        ///////////////// OTHER METHODS /////////////////
-        /////////////////////////////////////////////////
-
-        private void Scramble()
-        {
-
-        }
-
-        /// <summary>
-        /// Updates stickerValues global array with number representing color
+        /// Updates Stickers property of Cube object with array of numbers representing colors
         /// This method is an opposite of the UpdateStickers() method
         /// </summary>
         private void UpdateStickerValues()
         {
-            // loops through stickers PictureBox array and stickerValues int array and
-            // assigns stickerValues a value based on the stickers PictureBox backcolor
+            // loops through stickers PictureBox array and Stickers property of Cube object and
+            // assigns temp a value based on the stickers PictureBox backcolor
             for (int i = 0; i < SIZE; i++)
             {
                 if (stickers[i].BackColor == Color.White)
                 {
-                    stickerValues[i] = WHITE;
+                    myCube.Stickers[i] = WHITE;
                 }
                 else if (stickers[i].BackColor == Color.Blue)
                 {
-                    stickerValues[i] = BLUE;
+                    myCube.Stickers[i] = BLUE;
                 }
                 else if (stickers[i].BackColor == Color.Orange)
                 {
-                    stickerValues[i] = ORANGE;
+                    myCube.Stickers[i] = ORANGE;
                 }
                 else if (stickers[i].BackColor == Color.Green)
                 {
-                    stickerValues[i] = GREEN;
+                    myCube.Stickers[i] = GREEN;
                 }
                 else if (stickers[i].BackColor == Color.Red)
                 {
-                    stickerValues[i] = RED;
+                    myCube.Stickers[i] = RED;
                 }
                 else
                 {
-                    stickerValues[i] = YELLOW;
+                    myCube.Stickers[i] = YELLOW;
                 }
             }
         }
@@ -491,27 +97,27 @@ namespace ProjectFinal_JDoctor
         /// </summary>
         private void UpdateStickers()
         {
-            // loops through stickers PictureBox array and stickerValues int array and
-            // assigns stickers PictureBox backcolor based off of stickerValues int value
+            // loops through stickers PictureBox array and Stickers property of Cube object and
+            // assigns stickers PictureBox backcolor based off of Stickers value
             for (int i = 0; i < SIZE; i++)
             {
-                if (stickerValues[i] == WHITE)
+                if (myCube.Stickers[i] == WHITE)
                 {
                     stickers[i].BackColor = Color.White;
                 }
-                else if (stickerValues[i] == BLUE)
+                else if (myCube.Stickers[i] == BLUE)
                 {
                     stickers[i].BackColor = Color.Blue;
                 }
-                else if (stickerValues[i] == ORANGE)
+                else if (myCube.Stickers[i] == ORANGE)
                 {
                     stickers[i].BackColor = Color.Orange;
                 }
-                else if (stickerValues[i] == GREEN)
+                else if (myCube.Stickers[i] == GREEN)
                 {
                     stickers[i].BackColor = Color.Green;
                 }
-                else if (stickerValues[i] == RED)
+                else if (myCube.Stickers[i] == RED)
                 {
                     stickers[i].BackColor = Color.Red;
                 }
@@ -577,15 +183,15 @@ namespace ProjectFinal_JDoctor
             */
 
             // Resets each picture box to correct color
-            // Resets each stickerValue to correct value
+            // Resets each Stickers value to correct value
             for (int i = 0; i < 8; i++)
             {
-                stickers[i].BackColor = Color.White;                stickerValues[i] = WHITE;
-                stickers[i + 8].BackColor = Color.Blue;             stickerValues[i + 8] = BLUE;
-                stickers[i + 16].BackColor = Color.Orange;          stickerValues[i + 16] = ORANGE;
-                stickers[i + 24].BackColor = Color.Green;           stickerValues[i + 24] = GREEN;
-                stickers[i + 32].BackColor = Color.Red;             stickerValues[i + 32] = RED;
-                stickers[i + 40].BackColor = Color.Yellow;          stickerValues[i + 40] = YELLOW;
+                stickers[i].BackColor = Color.White;        myCube.Stickers[i] = WHITE;
+                stickers[i + 8].BackColor = Color.Blue;     myCube.Stickers[i + 8] = BLUE;
+                stickers[i + 16].BackColor = Color.Orange;  myCube.Stickers[i + 16] = ORANGE;
+                stickers[i + 24].BackColor = Color.Green;   myCube.Stickers[i + 24] = GREEN;
+                stickers[i + 32].BackColor = Color.Red;     myCube.Stickers[i + 32] = RED;
+                stickers[i + 40].BackColor = Color.Yellow;  myCube.Stickers[i + 40] = YELLOW;
             }
 
             // More housekeeping
@@ -613,15 +219,15 @@ namespace ProjectFinal_JDoctor
             }
             else if (radNormal.Checked)
             {
-                difficulty = 3;
+                difficulty = 4;
             }
             else if (radHard.Checked)
             {
-                difficulty = 4;
+                difficulty = 8;
             }
             else
             {
-                difficulty = 5;
+                difficulty = 16;
             }
 
             for (int i = 0; i < difficulty; i++)
@@ -633,44 +239,188 @@ namespace ProjectFinal_JDoctor
                 switch (turn)
                 {
                     case 1:
-                        RightTurn(sender, e);
+                        myCube.RightTurn();
                         break;
                     case 2:
-                        RightPrimeTurn(sender, e);
+                        myCube.RightPrimeTurn();
                         break;
                     case 3:
-                        LeftTurn(sender, e);
+                        myCube.LeftTurn();
                         break;
                     case 4:
-                        LeftPrimeTurn(sender, e);
+                        myCube.LeftPrimeTurn();
                         break;
                     case 5:
-                        UpTurn(sender, e);
+                        myCube.UpTurn();
                         break;
                     case 6:
-                        UpPrimeTurn(sender, e);
+                        myCube.UpPrimeTurn();
                         break;
                     case 7:
-                        DownTurn(sender, e);
+                        myCube.DownTurn();
                         break;
                     case 8:
-                        DownPrimeTurn(sender, e);
+                        myCube.DownPrimeTurn();
                         break;
                     case 9:
-                        FrontTurn(sender, e);
+                        myCube.FrontTurn();
                         break;
                     case 10:
-                        FrontPrimeTurn(sender, e);
+                        myCube.FrontPrimeTurn();
                         break;
                     case 11:
-                        BackTurn(sender, e);
+                        myCube.BackTurn();
                         break;
                     case 12:
-                        BackPrimeTurn(sender, e);
+                        myCube.BackPrimeTurn();
                         break;
                 }
             }
 
+            UpdateStickers();
+
+        }
+
+        /// <summary>
+        /// Makes a counterclockwise, left turn.
+        /// Updates stickers.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnLeftPrime_Click(object sender, EventArgs e)
+        {
+            myCube.LeftPrimeTurn();
+            UpdateStickers();
+        }
+
+        /// <summary>
+        /// Makes a clockwise, right turn.
+        /// Updates stickers.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRight_Click(object sender, EventArgs e)
+        {
+            myCube.RightTurn();
+            UpdateStickers();
+        }
+
+        /// <summary>
+        /// Makes a clockwise, upward turn.
+        /// Updates stickers.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnUp_Click(object sender, EventArgs e)
+        {
+            myCube.UpTurn();
+            UpdateStickers();
+        }
+
+        /// <summary>
+        /// Makes a counterclockwise, backward turn. Updates stickers.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnBackPrime_Click(object sender, EventArgs e)
+        {
+            myCube.BackPrimeTurn();
+            UpdateStickers();
+        }
+
+        /// <summary>
+        /// Makes a clockwise, front turn. Updates stickers.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnFront_Click(object sender, EventArgs e)
+        {
+            myCube.FrontTurn();
+            UpdateStickers();
+        }
+
+        /// <summary>
+        /// Makes a counterclockwise, downward turn.
+        /// Updates stickers.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDownPrime_Click(object sender, EventArgs e)
+        {
+            myCube.DownPrimeTurn();
+            UpdateStickers();
+        }
+
+        /// <summary>
+        /// Makes a clockwise, downward turn.
+        /// Updates stickers.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDown_Click(object sender, EventArgs e)
+        {
+            myCube.DownTurn();
+            UpdateStickers();
+        }
+
+        /// <summary>
+        /// Makes a counterclockwise, right turn.
+        /// Updates stickers.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRightPrime_Click(object sender, EventArgs e)
+        {
+            myCube.RightTurn();
+            UpdateStickers();
+        }
+
+        /// <summary>
+        /// Makes a clockwise, left turn.
+        /// Updates stickers.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnLeft_Click(object sender, EventArgs e)
+        {
+            myCube.LeftTurn();
+            UpdateStickers();
+        }
+
+        /// <summary>
+        /// Makes a counterclockwise, upward turn.
+        /// Updates stickers.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnUpPrime_Click(object sender, EventArgs e)
+        {
+            myCube.UpPrimeTurn();
+            UpdateStickers();
+        }
+
+        /// <summary>
+        /// Makes a counterclockwise, front turn.
+        /// Updates stickers.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnFrontPrime_Click(object sender, EventArgs e)
+        {
+            myCube.FrontPrimeTurn();
+            UpdateStickers();
+        }
+
+        /// <summary>
+        /// Makes a clockwise, backward turn.
+        /// Updates stickers.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            myCube.BackTurn();
+            UpdateStickers();
         }
     }
 }
