@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pnlGreen = new System.Windows.Forms.Panel();
             this.lblWhite = new System.Windows.Forms.Label();
             this.picG8 = new System.Windows.Forms.PictureBox();
@@ -40,7 +41,6 @@
             this.picG1 = new System.Windows.Forms.PictureBox();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnScramble = new System.Windows.Forms.Button();
-            this.btnSolve = new System.Windows.Forms.Button();
             this.grpColors = new System.Windows.Forms.GroupBox();
             this.radRed = new System.Windows.Forms.RadioButton();
             this.radOrange = new System.Windows.Forms.RadioButton();
@@ -114,10 +114,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnLeftPrime = new System.Windows.Forms.Button();
             this.btnRight = new System.Windows.Forms.Button();
             this.btnLeft = new System.Windows.Forms.Button();
@@ -139,6 +136,9 @@
             this.radHard = new System.Windows.Forms.RadioButton();
             this.radNormal = new System.Windows.Forms.RadioButton();
             this.radEasy = new System.Windows.Forms.RadioButton();
+            this.label6 = new System.Windows.Forms.Label();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlGreen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picG8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picG7)).BeginInit();
@@ -341,17 +341,6 @@
             this.btnScramble.Text = "Scramble";
             this.btnScramble.UseVisualStyleBackColor = false;
             this.btnScramble.Click += new System.EventHandler(this.btnScramble_Click);
-            // 
-            // btnSolve
-            // 
-            this.btnSolve.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSolve.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSolve.Location = new System.Drawing.Point(738, 125);
-            this.btnSolve.Name = "btnSolve";
-            this.btnSolve.Size = new System.Drawing.Size(120, 40);
-            this.btnSolve.TabIndex = 10;
-            this.btnSolve.Text = "Solve";
-            this.btnSolve.UseVisualStyleBackColor = false;
             // 
             // grpColors
             // 
@@ -1093,7 +1082,7 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 938);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 936);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1018, 22);
             this.statusStrip1.TabIndex = 26;
@@ -1108,8 +1097,7 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1018, 33);
@@ -1121,8 +1109,7 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator1,
             this.saveToolStripMenuItem,
-            this.openToolStripMenuItem,
-            this.openToolStripMenuItem1,
+            this.saveAsToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(50, 29);
@@ -1131,181 +1118,165 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(138, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(208, 6);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(141, 30);
-            this.saveToolStripMenuItem.Text = "New";
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(141, 30);
-            this.openToolStripMenuItem.Text = "Save";
-            // 
-            // openToolStripMenuItem1
-            // 
-            this.openToolStripMenuItem1.Name = "openToolStripMenuItem1";
-            this.openToolStripMenuItem1.Size = new System.Drawing.Size(141, 30);
-            this.openToolStripMenuItem1.Text = "Open";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(141, 30);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
             this.exitToolStripMenuItem.Text = "Exit";
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(61, 29);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // btnLeftPrime
             // 
-            this.btnLeftPrime.BackColor = System.Drawing.Color.Red;
+            this.btnLeftPrime.BackColor = System.Drawing.Color.Transparent;
             this.btnLeftPrime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLeftPrime.Location = new System.Drawing.Point(357, 50);
+            this.btnLeftPrime.Location = new System.Drawing.Point(357, 40);
             this.btnLeftPrime.Name = "btnLeftPrime";
-            this.btnLeftPrime.Size = new System.Drawing.Size(76, 33);
+            this.btnLeftPrime.Size = new System.Drawing.Size(76, 39);
             this.btnLeftPrime.TabIndex = 29;
-            this.btnLeftPrime.Text = "▲";
+            this.btnLeftPrime.Text = "L\'";
             this.btnLeftPrime.UseVisualStyleBackColor = false;
             this.btnLeftPrime.Click += new System.EventHandler(this.btnLeftPrime_Click);
             // 
             // btnRight
             // 
-            this.btnRight.BackColor = System.Drawing.Color.Orange;
+            this.btnRight.BackColor = System.Drawing.Color.Transparent;
             this.btnRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRight.Location = new System.Drawing.Point(515, 50);
+            this.btnRight.Location = new System.Drawing.Point(515, 40);
             this.btnRight.Name = "btnRight";
-            this.btnRight.Size = new System.Drawing.Size(76, 33);
+            this.btnRight.Size = new System.Drawing.Size(76, 39);
             this.btnRight.TabIndex = 30;
-            this.btnRight.Text = "▲";
+            this.btnRight.Text = "R";
             this.btnRight.UseVisualStyleBackColor = false;
             this.btnRight.Click += new System.EventHandler(this.btnRight_Click);
             // 
             // btnLeft
             // 
-            this.btnLeft.BackColor = System.Drawing.Color.Red;
+            this.btnLeft.BackColor = System.Drawing.Color.Transparent;
             this.btnLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLeft.Location = new System.Drawing.Point(357, 815);
             this.btnLeft.Name = "btnLeft";
-            this.btnLeft.Size = new System.Drawing.Size(76, 33);
+            this.btnLeft.Size = new System.Drawing.Size(76, 39);
             this.btnLeft.TabIndex = 31;
-            this.btnLeft.Text = "▼";
+            this.btnLeft.Text = "L";
             this.btnLeft.UseVisualStyleBackColor = false;
             this.btnLeft.Click += new System.EventHandler(this.btnLeft_Click);
             // 
             // btnRightPrime
             // 
-            this.btnRightPrime.BackColor = System.Drawing.Color.Orange;
+            this.btnRightPrime.BackColor = System.Drawing.Color.Transparent;
             this.btnRightPrime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRightPrime.Location = new System.Drawing.Point(515, 815);
             this.btnRightPrime.Name = "btnRightPrime";
-            this.btnRightPrime.Size = new System.Drawing.Size(76, 33);
+            this.btnRightPrime.Size = new System.Drawing.Size(76, 39);
             this.btnRightPrime.TabIndex = 33;
-            this.btnRightPrime.Text = "▼";
+            this.btnRightPrime.Text = "R\'";
             this.btnRightPrime.UseVisualStyleBackColor = false;
             this.btnRightPrime.Click += new System.EventHandler(this.btnRightPrime_Click);
             // 
             // btnBackPrime
             // 
-            this.btnBackPrime.BackColor = System.Drawing.Color.Green;
+            this.btnBackPrime.BackColor = System.Drawing.Color.Transparent;
             this.btnBackPrime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBackPrime.Location = new System.Drawing.Point(841, 331);
             this.btnBackPrime.Name = "btnBackPrime";
-            this.btnBackPrime.Size = new System.Drawing.Size(33, 76);
+            this.btnBackPrime.Size = new System.Drawing.Size(39, 76);
             this.btnBackPrime.TabIndex = 34;
-            this.btnBackPrime.Text = "▶";
+            this.btnBackPrime.Text = "B\'";
             this.btnBackPrime.UseVisualStyleBackColor = false;
             this.btnBackPrime.Click += new System.EventHandler(this.btnBackPrime_Click);
             // 
             // btnFront
             // 
-            this.btnFront.BackColor = System.Drawing.Color.Blue;
+            this.btnFront.BackColor = System.Drawing.Color.Transparent;
             this.btnFront.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFront.Location = new System.Drawing.Point(841, 489);
             this.btnFront.Name = "btnFront";
-            this.btnFront.Size = new System.Drawing.Size(33, 76);
+            this.btnFront.Size = new System.Drawing.Size(39, 76);
             this.btnFront.TabIndex = 36;
-            this.btnFront.Text = "▶";
+            this.btnFront.Text = "F";
             this.btnFront.UseVisualStyleBackColor = false;
             this.btnFront.Click += new System.EventHandler(this.btnFront_Click);
             // 
             // btnBack
             // 
-            this.btnBack.BackColor = System.Drawing.Color.Green;
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(76, 331);
+            this.btnBack.Location = new System.Drawing.Point(66, 332);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(33, 76);
+            this.btnBack.Size = new System.Drawing.Size(39, 76);
             this.btnBack.TabIndex = 37;
-            this.btnBack.Text = "◀";
+            this.btnBack.Text = "B";
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnFrontPrime
             // 
-            this.btnFrontPrime.BackColor = System.Drawing.Color.Blue;
+            this.btnFrontPrime.BackColor = System.Drawing.Color.Transparent;
             this.btnFrontPrime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFrontPrime.Location = new System.Drawing.Point(76, 487);
+            this.btnFrontPrime.Location = new System.Drawing.Point(66, 489);
             this.btnFrontPrime.Name = "btnFrontPrime";
-            this.btnFrontPrime.Size = new System.Drawing.Size(33, 76);
+            this.btnFrontPrime.Size = new System.Drawing.Size(39, 76);
             this.btnFrontPrime.TabIndex = 39;
-            this.btnFrontPrime.Text = "◀";
+            this.btnFrontPrime.Text = "F\'";
             this.btnFrontPrime.UseVisualStyleBackColor = false;
             this.btnFrontPrime.Click += new System.EventHandler(this.btnFrontPrime_Click);
             // 
             // btnUp
             // 
-            this.btnUp.BackColor = System.Drawing.Color.White;
-            this.btnUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUp.BackColor = System.Drawing.Color.Transparent;
+            this.btnUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUp.Location = new System.Drawing.Point(597, 286);
             this.btnUp.Name = "btnUp";
-            this.btnUp.Size = new System.Drawing.Size(35, 35);
+            this.btnUp.Size = new System.Drawing.Size(39, 39);
             this.btnUp.TabIndex = 41;
-            this.btnUp.Text = "⟳";
+            this.btnUp.Text = "U";
             this.btnUp.UseVisualStyleBackColor = false;
             this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
             // 
             // btnDownPrime
             // 
-            this.btnDownPrime.BackColor = System.Drawing.Color.Yellow;
-            this.btnDownPrime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDownPrime.Location = new System.Drawing.Point(612, 589);
+            this.btnDownPrime.BackColor = System.Drawing.Color.Transparent;
+            this.btnDownPrime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDownPrime.Location = new System.Drawing.Point(606, 584);
             this.btnDownPrime.Name = "btnDownPrime";
-            this.btnDownPrime.Size = new System.Drawing.Size(35, 35);
+            this.btnDownPrime.Size = new System.Drawing.Size(39, 39);
             this.btnDownPrime.TabIndex = 42;
-            this.btnDownPrime.Text = "⟲";
+            this.btnDownPrime.Text = "D\'";
             this.btnDownPrime.UseVisualStyleBackColor = false;
             this.btnDownPrime.Click += new System.EventHandler(this.btnDownPrime_Click);
             // 
             // btnDown
             // 
-            this.btnDown.BackColor = System.Drawing.Color.Yellow;
-            this.btnDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDown.BackColor = System.Drawing.Color.Transparent;
+            this.btnDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDown.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnDown.Location = new System.Drawing.Point(897, 870);
             this.btnDown.Name = "btnDown";
-            this.btnDown.Size = new System.Drawing.Size(35, 35);
+            this.btnDown.Size = new System.Drawing.Size(39, 39);
             this.btnDown.TabIndex = 43;
-            this.btnDown.Text = "⟳";
+            this.btnDown.Text = "D";
             this.btnDown.UseVisualStyleBackColor = false;
             this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
             // 
             // btnUpPrime
             // 
-            this.btnUpPrime.BackColor = System.Drawing.Color.White;
-            this.btnUpPrime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpPrime.BackColor = System.Drawing.Color.Transparent;
+            this.btnUpPrime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpPrime.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnUpPrime.Location = new System.Drawing.Point(314, 571);
+            this.btnUpPrime.Location = new System.Drawing.Point(308, 571);
             this.btnUpPrime.Name = "btnUpPrime";
-            this.btnUpPrime.Size = new System.Drawing.Size(35, 35);
+            this.btnUpPrime.Size = new System.Drawing.Size(39, 39);
             this.btnUpPrime.TabIndex = 44;
-            this.btnUpPrime.Text = "⟲";
+            this.btnUpPrime.Text = "U\'";
             this.btnUpPrime.UseVisualStyleBackColor = false;
             this.btnUpPrime.Click += new System.EventHandler(this.btnUpPrime_Click);
             // 
@@ -1395,14 +1366,31 @@
             this.radEasy.Text = "Easy";
             this.radEasy.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label6.Location = new System.Drawing.Point(656, 50);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(303, 228);
+            this.label6.TabIndex = 50;
+            this.label6.Text = resources.GetString("label6.Text");
+            // 
+            // saveAsToolStripMenuItem
+            // 
+            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.saveAsToolStripMenuItem.Text = "Save As";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
+            // 
             // Form1
             // 
-            this.AcceptButton = this.btnSolve;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.CancelButton = this.btnReset;
-            this.ClientSize = new System.Drawing.Size(1018, 960);
+            this.ClientSize = new System.Drawing.Size(1018, 958);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -1430,14 +1418,17 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.grpColors);
-            this.Controls.Add(this.btnSolve);
             this.Controls.Add(this.btnScramble);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.pnlGreen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximumSize = new System.Drawing.Size(1044, 1018);
+            this.MinimumSize = new System.Drawing.Size(1044, 1018);
             this.Name = "Form1";
-            this.Text = "Rubik\'s Cube Solver";
+            this.Text = "Virtual Cube";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Click += new System.EventHandler(this.ChangeColor);
             this.pnlGreen.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picG8)).EndInit();
@@ -1518,7 +1509,6 @@
         private System.Windows.Forms.Panel pnlGreen;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnScramble;
-        private System.Windows.Forms.Button btnSolve;
         private System.Windows.Forms.PictureBox picG8;
         private System.Windows.Forms.PictureBox picG7;
         private System.Windows.Forms.PictureBox picG5;
@@ -1587,8 +1577,6 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem1;
         private System.Windows.Forms.Button btnLeftPrime;
         private System.Windows.Forms.Button btnRight;
         private System.Windows.Forms.Button btnLeft;
@@ -1598,7 +1586,6 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnFrontPrime;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.Label lblUp;
         private System.Windows.Forms.Label lblDown;
         private System.Windows.Forms.Label lblWhite;
@@ -1626,6 +1613,9 @@
         private System.Windows.Forms.RadioButton radHard;
         private System.Windows.Forms.RadioButton radNormal;
         private System.Windows.Forms.RadioButton radEasy;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
     }
 }
 

@@ -7,16 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ProjectFinal_JDoctor
 {
     public partial class Form1 : Form
     {
-        // constructs a cube object
+        // constructs a Cube object
         Cube myCube = new Cube();
 
-        // global variables
+        // declares StreamWriter object
+        StreamWriter outFile;
+
+        // global variables -- stickers PictureBox[]
         private PictureBox[] stickers;
+
+        // global variables -- constants
         const int WHITE = 1;
         const int BLUE = 2;
         const int ORANGE = 3;
@@ -24,6 +30,10 @@ namespace ProjectFinal_JDoctor
         const int RED = 5;
         const int YELLOW = 6;
         const int SIZE = 48;
+
+        // global variables -- booleans
+        bool saved = false;
+        bool saveFileExists = false;
 
         public Form1()
         {
@@ -41,35 +51,44 @@ namespace ProjectFinal_JDoctor
         /// </summary>
         private void UpdateStickerValues()
         {
+            // creates temp array to store sticker values in
+            int[] temp = new int[SIZE];
+
             // loops through stickers PictureBox array and Stickers property of Cube object and
             // assigns temp a value based on the stickers PictureBox backcolor
             for (int i = 0; i < SIZE; i++)
             {
                 if (stickers[i].BackColor == Color.White)
                 {
-                    myCube.Stickers[i] = WHITE;
+                    temp[i] = WHITE;
                 }
                 else if (stickers[i].BackColor == Color.Blue)
                 {
-                    myCube.Stickers[i] = BLUE;
+                    temp[i] = BLUE;
                 }
                 else if (stickers[i].BackColor == Color.Orange)
                 {
-                    myCube.Stickers[i] = ORANGE;
+                    temp[i] = ORANGE;
                 }
                 else if (stickers[i].BackColor == Color.Green)
                 {
-                    myCube.Stickers[i] = GREEN;
+                    temp[i] = GREEN;
                 }
                 else if (stickers[i].BackColor == Color.Red)
                 {
-                    myCube.Stickers[i] = RED;
+                    temp[i] = RED;
                 }
                 else
                 {
-                    myCube.Stickers[i] = YELLOW;
+                    temp[i] = YELLOW;
                 }
             }
+
+            // updates myCube.Stickers with temp
+            myCube.Stickers = temp;
+
+            // updates boolean
+            saved = false;
         }
 
         /// <summary>
@@ -126,6 +145,9 @@ namespace ProjectFinal_JDoctor
                     stickers[i].BackColor = Color.Yellow;
                 }
             }
+
+            // updates boolean
+            saved = false;
         }
 
         /// <summary>
@@ -198,6 +220,9 @@ namespace ProjectFinal_JDoctor
             radDisabled.Checked = true;
             radGreen.Checked = true;
             radEasy.Checked = true;
+
+            // Updates sticker values
+            UpdateStickerValues();
 
         }
 
@@ -421,6 +446,120 @@ namespace ProjectFinal_JDoctor
         {
             myCube.BackTurn();
             UpdateStickers();
+        }
+
+        /// <summary>
+        /// Exits application.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        /// <summary>
+        /// Checks if save file exists. Updates existing save files.
+        /// If the save file does not exist, a new file is created.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // updates sticker values, just incase
+            UpdateStickerValues();
+
+            try
+            {
+                // checks if save file exists already
+                if (saveFileExists)
+                {
+
+                    // replaces old save file with new one
+                    outFile = File.CreateText(saveFileDialog.FileName);
+
+                    // writes values from myCube.Stickers to new save file
+                    foreach (int value in myCube.Stickers)
+                    {
+                        outFile.WriteLine(value);
+                    }
+
+                    // closes file
+                    outFile.Close();
+
+                    // updates boolean value
+                    saved = true;
+
+                    // updates status
+                    lblStatus.Text = "Cube saved successfully";
+                }
+                // opens save as file dialog
+                else
+                {
+                    saveAsToolStripMenuItem_Click(sender, e);
+                }
+            }
+            catch
+            {
+                lblStatus.Text = "Error saving cube";
+            }
+        }
+
+        /// <summary>
+        /// Creates new save file, which includes a text-based copy of the cube sticker values.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // updates sticker values, just incase
+            UpdateStickerValues();
+
+            try
+            {
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // constructs StreamWriter object, outFile
+                    outFile = File.CreateText(saveFileDialog.FileName);
+
+                    // writes values from myCube.Stickers to file
+                    foreach (int value in myCube.Stickers)
+                    {
+                        outFile.WriteLine(value);
+                    }
+
+                    // closes file
+                    outFile.Close();
+
+                    // updates boolean values
+                    saveFileExists = true;
+                    saved = true;
+
+                    // updates status
+                    lblStatus.Text = "Cube save file created successfully";
+                }
+            }
+            catch
+            {
+                lblStatus.Text = "Error saving cube";
+            }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!saved)
+            {
+                // displays warning messagebox
+                DialogResult result = MessageBox.Show("Cube is not saved!\nDo you wish to exit without saving?",
+                                            "Cube Not Saved!", MessageBoxButtons.YesNo);
+
+                if (result == System.Windows.Forms.DialogResult.No)
+                {
+                    // cancels form closing event
+                    e.Cancel = true;
+                    return;
+                }
+            }
         }
     }
 }
