@@ -11,10 +11,10 @@ using System.IO;
 
 namespace ProjectFinal_JDoctor
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        // constructs a Cube object
-        Cube myCube = new Cube();
+        // declares a Cube object
+        Cube myCube;
 
         // declares StreamWriter object
         StreamWriter outFile;
@@ -32,10 +32,14 @@ namespace ProjectFinal_JDoctor
         const int SIZE = 48;
 
         // global variables -- booleans
-        bool saved = false;
-        bool saveFileExists = false;
+        bool saved;
+        bool saveFileExists;
 
-        public Form1()
+        // global variable -- string
+        string path;
+
+        // no-arg constructor
+        public MainForm()
         {
             InitializeComponent();
             // stickers array initialized with picturebox controls
@@ -43,6 +47,36 @@ namespace ProjectFinal_JDoctor
                                           picB5, picB6, picB7, picB8, picO1, picO2, picO3, picO4, picO5, picO6, picO7, picO8,
                                           picG1, picG2, picG3, picG4, picG5, picG6, picG7, picG8, picR1, picR2, picR3, picR4,
                                           picR5, picR6, picR7, picR8, picY1, picY2, picY3, picY4, picY5, picY6, picY7, picY8 };
+            // constructs cube object
+            myCube = new Cube();
+        }
+
+        // initializer constructor
+        public MainForm(int[] pStickers, string pFilePath)
+        {
+            InitializeComponent();
+            // stickers array initialized with picturebox controls
+            stickers = new PictureBox[] { picW1, picW2, picW3, picW4, picW5, picW6, picW7, picW8, picB1, picB2, picB3, picB4,
+                                          picB5, picB6, picB7, picB8, picO1, picO2, picO3, picO4, picO5, picO6, picO7, picO8,
+                                          picG1, picG2, picG3, picG4, picG5, picG6, picG7, picG8, picR1, picR2, picR3, picR4,
+                                          picR5, picR6, picR7, picR8, picY1, picY2, picY3, picY4, picY5, picY6, picY7, picY8 };
+
+            // constructs cube object and sets stickers property to array values
+            myCube = new Cube();
+            myCube.Stickers = pStickers;
+
+            // updates stickers
+            UpdateStickers();
+
+            // updates boolean values
+            saveFileExists = true;
+            saved = true;
+
+            // initializes string path
+            path = pFilePath;
+
+            // updates status
+            lblStatus.Text = "Cube save file opened successfully";
         }
 
         /// <summary>
@@ -233,6 +267,9 @@ namespace ProjectFinal_JDoctor
         /// <param name="e"></param>
         private void btnScramble_Click(object sender, EventArgs e)
         {
+            // housekeeping
+            radDisabled.Checked = true;
+
             int difficulty;                 // number of random turns
             int turn;                       // represents turn, which is selected randomly
             Random rand = new Random();     // Random object, used to determine which turns to call
@@ -449,13 +486,13 @@ namespace ProjectFinal_JDoctor
         }
 
         /// <summary>
-        /// Exits application.
+        /// Exits form.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         /// <summary>
@@ -474,9 +511,8 @@ namespace ProjectFinal_JDoctor
                 // checks if save file exists already
                 if (saveFileExists)
                 {
-
                     // replaces old save file with new one
-                    outFile = File.CreateText(saveFileDialog.FileName);
+                    outFile = File.CreateText(path);
 
                     // writes values from myCube.Stickers to new save file
                     foreach (int value in myCube.Stickers)
@@ -519,8 +555,11 @@ namespace ProjectFinal_JDoctor
             {
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
+                    // stores file path
+                    path = saveFileDialog.FileName;
+
                     // constructs StreamWriter object, outFile
-                    outFile = File.CreateText(saveFileDialog.FileName);
+                    outFile = File.CreateText(path);
 
                     // writes values from myCube.Stickers to file
                     foreach (int value in myCube.Stickers)
@@ -545,12 +584,18 @@ namespace ProjectFinal_JDoctor
             }
         }
 
+        /// <summary>
+        /// Checks if cube is saved. If not, asks user if s/he wants to save progress.
+        /// If user wants to save progress, form closing is canceled.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!saved)
             {
                 // displays warning messagebox
-                DialogResult result = MessageBox.Show("Cube is not saved!\nDo you wish to exit without saving?",
+                DialogResult result = MessageBox.Show("Do you wish to exit without saving?",
                                             "Cube Not Saved!", MessageBoxButtons.YesNo);
 
                 if (result == System.Windows.Forms.DialogResult.No)

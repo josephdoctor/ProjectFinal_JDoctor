@@ -117,29 +117,41 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="red" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="black" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="green" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\orange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="yellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\yellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cube" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cube.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="txtHelp.Text" xml:space="preserve">
+    <value>
+STEPS TO SOLVING A RUBIK'S CUBE:
+------------------------------------------------------------------------------------------------------------------------------------------
+1) SOLVE THE WHITE CROSS. After a bit of practice, you should be able to make a white cross intuitively. Make sure that your white edge pieces (only have two colors, white and some other color) also match up with the center color of the side they share. NOTE: Center pieces (only one color) never move. This is how you know which side is which.
+
+2) SOLVE THE WHITE CORNERS. There are three algorithms which may be of use to you here. To use these algorithms, first position the cube so that the white cross is on the bottom side and the corner piece you want to relocate is at the front-right corner of the top side. NOTE: The white sticker on the piece you want to relocate will be on one of either of three sides: front, right, top.
+
+R U R’ - When the white sticker is on the right side.
+F’ U’ F - When the white sticker is on the front side.
+R U2 R’ U’ R U R’ - When the white sticker is on the top side.
+
+3) SOLVE THE MIDDLE EDGES. Remember, edge pieces only have two colors. Position the edge piece you want to use on the top-right side of the cube. The white side should still be facing the bottom. The edge piece you want to relocate should also have a matching right side color as the center piece of the right side. Then, depending on if you want to relocate the piece to the front or the back, you have two different algorithms to choose from.
+
+R’ U’ R’ U’ R’ U R U R - When you want to move the edge piece to the front.
+R U R U R U’ R’ U’ R’ - When you want to move the edge piece to the back.
+
+4) SOLVE THE YELLOW CROSS. The yellow side is always directly opposite the white side (remember, the center pieces never move). Once again, there are two algorithms to choose from to get a yellow cross on the top side. If neither of the conditions are met, choose either of the algorithms. Keep repeating the algorithms until you have a yellow cross. NOTE: A lowercase turn letter signals you to turn the center/middle side in addition to the side represented by the turn letter. This will turn two-thirds of the cube at once.
+
+F R U R’ U’ F’ - When you already have a yellow line (three yellow stickers in a row).
+F R U R’ U’ f’ - When you have a yellow elbow (three yellow stickers not in a row).
+
+5) SOLVE THE YELLOW CORNERS. Once you have a yellow cross completed, you will have either one, two, or zero yellow corners in position with the yellow sticker on the yellow side. There is only one algorithm for this step, but the number of yellow stickers you start out with will determine the position of the cube before you complete the algorithm. NOTE: If you have one yellow sticker in position, turn the cube so that the yellow side is the upward side and the single yellow sticker is in the front-left corner before you complete the algorithm. For two yellow stickers in position, turn the cube until you have a yellow sticker on the front-left side (the yellow sticker itself should not be on the upward, yellow side). For zero yellow stickers, follow the instructions as if you have two yellow stickers, but this time the yellow sticker itself should be on the left side in the front-left corner.
+
+R U R’ U R U2 R’
+
+6) BEGIN TO SOLVE THE TOP EDGES. If your top edges are all messed up, then you will have to complete the following algorithm until they are in a more manageable state. The more manageable state refers to all four edges having a combination of solid lines and/or headlights, which is when the two corner edge pieces have the same colors but the middle edge piece is different.
+
+R’ F R’ B2 R F’ R’ B2 R2
+
+7) COMPLETE THE TOP EDGES. Once your top edges are in a more manageable state, as defined in step 6, you may keep doing the following algorithm until your cube is completely solved.
+
+R U’ R U R U R U’ R’ U’ R2
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CONGRATULATIONS, YOU ARE FINISHED!</value>
   </data>
 </root>

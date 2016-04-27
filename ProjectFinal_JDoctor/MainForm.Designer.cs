@@ -1,6 +1,6 @@
 ﻿namespace ProjectFinal_JDoctor
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pnlGreen = new System.Windows.Forms.Panel();
             this.lblWhite = new System.Windows.Forms.Label();
             this.picG8 = new System.Windows.Forms.PictureBox();
@@ -114,6 +114,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnLeftPrime = new System.Windows.Forms.Button();
             this.btnRight = new System.Windows.Forms.Button();
@@ -138,7 +139,6 @@
             this.radEasy = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlGreen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picG8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picG7)).BeginInit();
@@ -1082,9 +1082,9 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 936);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 942);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1018, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(998, 22);
             this.statusStrip1.TabIndex = 26;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -1100,7 +1100,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1018, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(998, 33);
             this.menuStrip1.TabIndex = 27;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1118,19 +1118,26 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(208, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(156, 6);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(159, 30);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // saveAsToolStripMenuItem
+            // 
+            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(159, 30);
+            this.saveAsToolStripMenuItem.Text = "Save As";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(159, 30);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -1234,9 +1241,9 @@
             // 
             this.btnUp.BackColor = System.Drawing.Color.Transparent;
             this.btnUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUp.Location = new System.Drawing.Point(597, 286);
+            this.btnUp.Location = new System.Drawing.Point(597, 281);
             this.btnUp.Name = "btnUp";
-            this.btnUp.Size = new System.Drawing.Size(39, 39);
+            this.btnUp.Size = new System.Drawing.Size(42, 42);
             this.btnUp.TabIndex = 41;
             this.btnUp.Text = "U";
             this.btnUp.UseVisualStyleBackColor = false;
@@ -1246,9 +1253,9 @@
             // 
             this.btnDownPrime.BackColor = System.Drawing.Color.Transparent;
             this.btnDownPrime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDownPrime.Location = new System.Drawing.Point(606, 584);
+            this.btnDownPrime.Location = new System.Drawing.Point(607, 581);
             this.btnDownPrime.Name = "btnDownPrime";
-            this.btnDownPrime.Size = new System.Drawing.Size(39, 39);
+            this.btnDownPrime.Size = new System.Drawing.Size(42, 42);
             this.btnDownPrime.TabIndex = 42;
             this.btnDownPrime.Text = "D\'";
             this.btnDownPrime.UseVisualStyleBackColor = false;
@@ -1261,7 +1268,7 @@
             this.btnDown.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnDown.Location = new System.Drawing.Point(897, 870);
             this.btnDown.Name = "btnDown";
-            this.btnDown.Size = new System.Drawing.Size(39, 39);
+            this.btnDown.Size = new System.Drawing.Size(42, 42);
             this.btnDown.TabIndex = 43;
             this.btnDown.Text = "D";
             this.btnDown.UseVisualStyleBackColor = false;
@@ -1274,7 +1281,7 @@
             this.btnUpPrime.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnUpPrime.Location = new System.Drawing.Point(308, 571);
             this.btnUpPrime.Name = "btnUpPrime";
-            this.btnUpPrime.Size = new System.Drawing.Size(39, 39);
+            this.btnUpPrime.Size = new System.Drawing.Size(42, 42);
             this.btnUpPrime.TabIndex = 44;
             this.btnUpPrime.Text = "U\'";
             this.btnUpPrime.UseVisualStyleBackColor = false;
@@ -1375,21 +1382,14 @@
             this.label6.TabIndex = 50;
             this.label6.Text = resources.GetString("label6.Text");
             // 
-            // saveAsToolStripMenuItem
-            // 
-            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
-            this.saveAsToolStripMenuItem.Text = "Save As";
-            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
-            // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.CancelButton = this.btnReset;
-            this.ClientSize = new System.Drawing.Size(1018, 958);
+            this.ClientSize = new System.Drawing.Size(998, 964);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.label5);
@@ -1423,9 +1423,8 @@
             this.Controls.Add(this.pnlGreen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximumSize = new System.Drawing.Size(1044, 1018);
-            this.MinimumSize = new System.Drawing.Size(1044, 1018);
-            this.Name = "Form1";
+            this.MaximumSize = new System.Drawing.Size(1024, 1024);
+            this.Name = "MainForm";
             this.Text = "Virtual Cube";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
